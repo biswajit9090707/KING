@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Poster Shop</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#featured">Featured</a>
+                <a href="#categories">Categories</a>
+                <a href="user-orders.html">My Orders</a>
+                <span id="authWidget" style="margin-left:.5rem;"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Amazing Posters for Every Fan</h1>
+            <p>High-quality prints of your favorite characters and moments</p>
+        </section>
+
+        <section id="featured" class="products">
+            <h2>Featured Posters</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be loaded here via JavaScript -->
+                <div class="loading">Loading products...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Poster Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    
+    <!-- Your JavaScript -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/auth-widget.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

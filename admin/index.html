@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Poster Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="logo">Poster Shop<br><span>Admin Panel</span></div>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#products"><i class="fas fa-image"></i> Products</a>
+                <a href="orders.html"><i class="fas fa-receipt"></i> Orders</a>
+                <a href="../index.html"><i class="fas fa-home"></i> Back to Shop</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Admin Dashboard</h1>
+            </header>
+
+            <section id="products" class="content-section">
+                <div class="section-header">
+                    <h2>Products</h2>
+                    <button id="addProductBtn" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </button>
+                </div>
+
+                <div class="products-grid" id="adminProductsGrid">
+                    <!-- Products will be loaded here -->
+                    <div class="loading">Loading products...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Product</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="imageUrls">Image URLs (one per line)</label>
+                    <textarea id="imageUrls" rows="4" placeholder="https://example.com/img1.jpg
+https://example.com/img2.jpg" required></textarea>
+                    <small style="color:#7f8c8d;display:block;margin-top:0.5rem;">Add 1–4 direct image URLs. The first will be used as the cover.</small>
+                </div>
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <select id="size" required>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../js/firebase-config.js"></script>
+    
+    <!-- Admin Products -->
+    <script src="js/admin-products.js"></script>
+</body>
+</html>
